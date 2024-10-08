@@ -94,23 +94,45 @@ def q13():
     print(f'O novo saldo da conta poupaça é:{round(saldo*1.02,2)}')
 
 #14. Faça um programa que leia a base e a altura de um retângulo
-#    e imprima o perímetro (base + altura) e a área (base * altura / 2).
-def q14():
+#    e imprima o perímetro (base*2 + altura*2) e a área (base * altura / 2).
+def q14(): 
+    base = round(float(input('Digite a base do retângulo: "))) altura = round(float (input("Digite a altura do retângulo: ")))
+    área = base * altura
+    perímetro=2* (base + altura)
+    print(f'A área do retângulo é: (área] m"') print(f'o perímetro do retângulo é: (perimetro) m')
+
 
 #15. Faça um programa que leia o valor de um produto, o percentual
 #    do desconto desejado e imprima o valor do desconto e o valor
 #    do produto subtraindo o desconto.
+def q15(): 
+    produto = round(float (input("Digite o valor do produto: R$' ))) 
+    percentualdedesconto = round(float(input("Digite ○ percentualdedesconto oferecido: ")))
+    print(f'0 valor do produto é: R$[produto]") 
+    print(f'0 valor de desconto é: (percentualdedesconto)%") 
+    print(f"0 valor do produto com desconto é: R$(round(produto-(produto*percentualdedesconto/100),2)]")
 
 #16. Faça um programa que calcule o reajuste do salário de um
 #    funcionário. Para isso, o programa deverá ler o salário atual
 #    do funcionário e ler o percentual de reajuste. Ao final imprimir
 #    o valor do novo salário.
+def q16(): 
+    salario - round(float (input('Digite o salário: R$' ))) 
+    percentual_de_reajuste = round(float(input ('Digite ○ percentual de reajuste:')))
+    print(f'O valor do salário é: R$ {salario}') 
+    print(f'O valor de reajuste é: {percentual_de_reajuste}%') 
+    print(f'O salārio ajustado é: R${round(salario:(salario+percentual_de_reajuste/100),2)}')
 
 #17. Faça um programa que calcule a conversão entre graus centígrados
 #    e Fahrenheit. Para isso, leia o valor em centígrados e calcule
 #    com base na fórmula a seguir. Após calcular o programa deve
 #    imprimir o resultado da conversão.
 #    F = (9 x C + 160) / 5
+def q17():
+    c = int(input('Centígrados:'))
+    f = (9 * c + 160)/5
+    print(f'{c} C = {f} F')
+
 
 #18. Faça um programa que calcule a quantidade de litros de combustível
 #    consumidos em uma viagem, sabendo-se que o carro tem autonomia de
@@ -124,6 +146,14 @@ def q14():
 #    • L = Litros de combustível consumidos
 #    Ao final, o programa deverá imprimir a distância percorrida e a
 #    quantidade de litros consumidos na viagem.
+def q18():
+    tempo_decorrido = int(input('Tempo Decorrido (min):'))
+    velocidade_media = int(input('Velocidade Média (km/h):'))
+    distancia = tempo_decorrido * velocidade_media/60
+    litros_consumidos = distancia / 12
+    print(f'Distâncis:{distancia}')
+    print(f'Litros Consumidos{litros_consumidos}')
+
 
 #19. Faça um programa que calcule o valor de uma prestação em atraso.
 #    Para isso, o programa deve ler o valor da prestação vencida, a
@@ -131,9 +161,20 @@ def q14():
 #    programa deve imprimir o valor da prestação atrasada, o período
 #    de atraso, os juros que serão cobrados pelo período de atraso, o
 #    valor da prestação acrescido dos juros. Considere juros simples.
+def q19():
+    valor_prestacao_vencida = float(input('Valor da Prestação Vencida'))
+    taxa_juros = int(input('Taxa de Juros Diária(%):'))
+    dias_atraso = int(input('Dias de Atraso:'))
+    juros = valor_prestacao_vencida * (dias_atraso*taxa_juros/100)
+    valor_prestacao_final = valor_prestacao_vencida + juros
+
 
 #20. Faça um programa que efetue a apresentação do valor da conversão
 #    em real (R$) de um valor lido em dólar (US$). Para isso, será
 #    necessário também ler o valor da cotação do dólar.
+def q20():
+    dolares = float(input('US$:'))
+    cotacao = (float(input('Valor do dolar: R$')),2)
+    print(f'Quantidade de Reais: R$ {round(dolares*cotacao,2)}')
 
-q9()
+q17()
