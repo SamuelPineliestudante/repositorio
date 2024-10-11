@@ -36,22 +36,72 @@ def q2():
 
 #4. Faça um programa que leia um número e informe se ele é ou não divisível por 5.
 
+
 #5. Faça um programa que leia um número e informe se ele é divisível por 3 e por 7.
+# Lê um número do usuário
+def q5():
+   
+    num = int(input("Digite um número: "))
+    div3 = num % 3 == 0
+    div7 = num % 7 == 0
+
+    if div3 and div7:
+        print("É divisível por 3 e por 7")
+    elif div3:
+        print("É divisível por 3, mas não por 7")
+    elif div7:
+        print("É divisível por 7, mas não por 3")
+    else:
+        print("Não é divisível por 3 nem por 7")
+
 
 #6. A prefeitura do Rio de Janeiro abriu uma linha de crédito para os funcionários
 #   estatutários. O valor máximo da prestação não poderá ultrapassar 30% do salário
 #   bruto. Faça um programa que permita entrar com o salário bruto
 #   e o valor da prestação e informar se o empréstimo pode ou não ser concedido.
+def q6():
+    limite_prestacao = 0.30 * salario_bruto
+    return prestacao <= limite_prestacao
+
+        salario_bruto = float(input("Digite o salário bruto: R$ "))
+        prestacao = float(input("Digite o valor da prestação: R$ "))
+
+        if pode_conceder_emprestimo(salario_bruto, prestacao):
+            print("Empréstimo pode ser concedido.")
+        else:
+            print("Empréstimo NÃO pode ser concedido.")
+    except ValueError:
+        print("Por favor, insira valores numéricos válidos.")
+
+if __name__ == "__main__":
+    main()
+
 
 #7. Faça um programa que leia um número e indique se o número está compreendido
 #   entre 20 e 50 ou não.
 
 #8. Faça um programa que leia um número e imprima uma das mensagens:
 #   "Maior do que 20", "Igual a 20"ou "Menor do que 20".
+def q8()
+    num = int(input('Numero:'))
+    if num > 20:
+        print('Maior do que 20')
+    elif num == 20:
+        print('É igual a 20')
+    else:
+        print('É menor do que 20') 
 
 #9. Faça um programa que permita entrar com o ano de nascimento da pessoa e com o
 #   ano atual. O programa deve imprimir a idade da pessoa. Não se esqueça de
 #   verificar se o ano de nascimento informado é válido.
+def q9()
+    data_str = int(input('Data de Nascimento (dd/mm/yyyy):'))
+    data_nascimento = datetime.strptime(data_str, '%d/%m/%Y')
+
+    if data_nascimento.year > HOJE.year:
+        print('Data de nascimento inválida!')
+    else:
+        print(f'Idade: {(HOJE - data_nascimento).days/365}')
 
 #10. Faça um programa que leia três números inteiros e imprima os três em ordem
 #crescente.
@@ -165,4 +215,4 @@ def q2():
 #0,3 1º grupo
 #0,4 1º e 2º grupos
 #0,5 1º, 2º e 3º grupos
-q2()
+q9()
