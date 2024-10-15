@@ -59,30 +59,13 @@ def q5():
 #   estatutários. O valor máximo da prestação não poderá ultrapassar 30% do salário
 #   bruto. Faça um programa que permita entrar com o salário bruto
 #   e o valor da prestação e informar se o empréstimo pode ou não ser concedido.
-def q6():
-    limite_prestacao = 0.30 * salario_bruto
-    return prestacao <= limite_prestacao
-
-        salario_bruto = float(input("Digite o salário bruto: R$ "))
-        prestacao = float(input("Digite o valor da prestação: R$ "))
-
-        if pode_conceder_emprestimo(salario_bruto, prestacao):
-            print("Empréstimo pode ser concedido.")
-        else:
-            print("Empréstimo NÃO pode ser concedido.")
-    except ValueError:
-        print("Por favor, insira valores numéricos válidos.")
-
-if __name__ == "__main__":
-    main()
-
 
 #7. Faça um programa que leia um número e indique se o número está compreendido
 #   entre 20 e 50 ou não.
 
 #8. Faça um programa que leia um número e imprima uma das mensagens:
 #   "Maior do que 20", "Igual a 20"ou "Menor do que 20".
-def q8()
+def q8():     
     num = int(input('Numero:'))
     if num > 20:
         print('Maior do que 20')
@@ -94,7 +77,7 @@ def q8()
 #9. Faça um programa que permita entrar com o ano de nascimento da pessoa e com o
 #   ano atual. O programa deve imprimir a idade da pessoa. Não se esqueça de
 #   verificar se o ano de nascimento informado é válido.
-def q9()
+def q9():
     data_str = int(input('Data de Nascimento (dd/mm/yyyy):'))
     data_nascimento = datetime.strptime(data_str, '%d/%m/%Y')
 
@@ -102,22 +85,75 @@ def q9()
         print('Data de nascimento inválida!')
     else:
         print(f'Idade: {(HOJE - data_nascimento).days/365}')
+        
 
 #10. Faça um programa que leia três números inteiros e imprima os três em ordem
 #crescente.
+def q10():
+    
+    num1 = int(input("Digite o primeiro número inteiro: "))
+    num2 = int(input("Digite o segundo número inteiro: "))
+    num3 = int(input("Digite o terceiro número inteiro: "))
+    numeros_ordem = seq_numeros(num1,num2,num3)
+    print("Números em ordem crescente:", numeros_ordem)
 
 #11. Faça um programa que leia 3 números e imprima o maior deles.
+# Lê três números do usuário
+def q11():
+    num1 = float(input("Digite o primeiro número: "))
+    num2 = float(input("Digite o segundo número: "))
+    num3 = float(input("Digite o terceiro número: "))
+    maior = num1
+
+    if num2 > maior:
+        maior = num2
+    if num3 > maior:
+        maior = num3
+
+    print(f"O maior número é: {maior}")
+
 
 #12. Faça um programa que leia a idade de uma pessoa e informe:
 #• Se é maior de idade
-#• Se é menor de idadea
+#• Se é menor de idade
 #• Se é maior de 65 anos
+def q12():
+    idade = int(input('Digite a sua idade:'))
+     
+    if idade < 18:
+        print("Menor de idade")
+    elif 18 <= idade <= 65:
+        print("Maior de idade")
+    else:
+        print("Maior de 65 anos")
+    
+    print(idade)
+
 
 #13. Faça um programa que permita entrar com o nome, a nota da prova 1 e a nota
 #da prova 2 de um aluno. O programa deve imprimir o nome, a nota da prova 1,
 #a nota da prova 2, a média das notas e uma das mensagens: "Aprovado",
 #"Reprovado"ou "em Prova Final"(a média é 7 para aprovação, menor que 3 para
 #reprovação e as demais em prova final).
+def q13():
+    nome_aluno = input('Digite o nome do aluno:')
+    nota1 = float(input('Digite a nota da prova 1:'))
+    nota2 = float(input('Digite a nota da prova 2:'))
+
+    media = (nota1 + nota2) / 2
+    if media >= 7:
+        situacao = ("Aprovado")
+    elif media < 3:
+        situacao = ("Reprovado")
+    else:
+        situacao = ("Em Prova Final")
+
+    print(f"Nome do Aluno: {nome_aluno}")
+    print(f"Nota da Prova 1: {nota1}")
+    print(f"Nota da Prova 2: {nota2}")
+    print((f"Média: {media:}),2")
+    print(f"Situação: {situacao}")
+
 
 #14. Faça um programa que permita entrar com o salário de uma pessoa e imprima o
 #desconto do INSS segundo a tabela seguir:
@@ -126,6 +162,24 @@ def q9()
 #Maior que R$600,00 e menor ou igual a R$1200,00 20%
 #Maior que R$1200,00 e menor ou igual a R$2000,00 25%
 #Maior que R$2000,00 30%
+def q14():
+    salario = float(input('Digite o salário da pessoa:R$'))
+    
+    if salario <= 600:
+        desconto = 0
+        taxa = "Isento"
+    elif 600 < salario <= 1200:
+        desconto = salario * 0.20
+        taxa = "20%"
+    elif 1200 < salario <= 2000:
+        desconto = salario * 0.25
+        taxa = "25%"
+    else:  # salario > 2000
+        desconto = salario * 0.30
+        taxa = "30%"
+
+    print((f"Salário: R$ {salario:},2)")
+    print((f"Desconto do INSS: R$ {desconto:},2) ({taxa})")
 
 #15. Um comerciante comprou um produto e quer vendê-lo com um lucro de 45% se o
 #valor da compra for menor que R$20,00, caso contrário, o lucro será de 30%.
@@ -215,4 +269,4 @@ def q9()
 #0,3 1º grupo
 #0,4 1º e 2º grupos
 #0,5 1º, 2º e 3º grupos
-q9()
+q13()
