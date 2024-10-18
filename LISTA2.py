@@ -2,6 +2,12 @@
 Exercícios sobre os comandos de condição em python
 '''
 
+from datetime import date, datetime
+from deep_translator import GoogleTranslator # pip3 install deep-translator
+
+HOJE = datetime.now()
+tradutor = GoogleTranslator(source = 'en', target = 'pt')
+
 #1. Faça um programa que leia dois valores numéricos inteiros e efetue
 #   a adição, caso o resultado seja maior que 10, apresentá-lo.
 # Função para somar dois números e verificar o resultado
@@ -151,7 +157,7 @@ def q13():
     print(f"Nome do Aluno: {nome_aluno}")
     print(f"Nota da Prova 1: {nota1}")
     print(f"Nota da Prova 2: {nota2}")
-    print((f"Média: {media:}),2")
+    print(f"Média: {media:}")
     print(f"Situação: {situacao}")
 
 
@@ -178,12 +184,25 @@ def q14():
         desconto = salario * 0.30
         taxa = "30%"
 
-    print((f"Salário: R$ {salario:},2)")
-    print((f"Desconto do INSS: R$ {desconto:},2) ({taxa})")
+    print((f"Salário: R$ {round(salario,2)}"))
+    print((f"Desconto do INSS: R$ {round(desconto),2}) ({taxa})"))
 
 #15. Um comerciante comprou um produto e quer vendê-lo com um lucro de 45% se o
 #valor da compra for menor que R$20,00, caso contrário, o lucro será de 30%.
 #Faça um programa que leia o valor do produto e imprima o valor da venda.
+def q15():
+    valor_compra = float(input("Digite o valor do produto: R$ "))
+    preco_venda = (valor_compra)
+    
+
+    if valor_compra < 20.00:
+        lucro = 0.45  # 45%
+    else:
+        lucro = 0.30  # 30%
+    
+    preco_venda = valor_compra * (1 + lucro)
+    print(f"O valor de venda do produto será: R$ {round(preco_venda, 2)}")
+
 
 #16. A confederação brasileira de natação irá promover eliminatórias para o
 #próximo mundial. Faça um programa que receba a idade de um nadador e imprima
@@ -194,6 +213,24 @@ def q14():
 #Juvenil A 11 - 13 anos
 #Juvenil B 14 - 17 anos
 #Sênior maiores de 18 anos
+def q16():
+    idade = int(input("Digite a idade do nadador: "))
+        categoria = determinar_categoria(idade)
+        print(f"A categoria do nadador é: {categoria}")
+        print("Por favor, digite uma idade válida.")
+    
+    if 5 <= idade <= 7:
+        return "Infantil A"
+    elif 8 <= idade <= 10:
+        return "Infantil B"
+    elif 11 <= idade <= 13:
+        return "Juvenil A"
+    elif 14 <= idade <= 17:
+        return "Juvenil B"
+    elif idade >= 18:
+        return "Sênior"
+    else:
+        return "Idade fora da faixa permitida."
 
 #17. Depois da liberação do governo para as mensalidades dos planos de saúde,
 #as pessoas começaram a fazer pesquisas para descobrir um bom plano, não
@@ -211,6 +248,15 @@ def q14():
 #18. Faça um programa que leia um número inteiro entre 1 e 12 e escreva o mês
 #correspondente. Caso o usuário digite um número fora desse intervalo, deverá
 #aparecer uma mensagem informando que não existe mês com este número.
+def q18():
+    mes = int(input('Digite o número do mês:'))
+    if mes < 1 or mes > 12:
+        print('Mês Inválido!')
+    else:
+        data = datetime.strptime(f'01/{mes}/24','%d/%m/%y')
+        mes_extenso = data.strftime('%B')
+        print(tradutor.translate(mes_extenso))
+
 
 #19. Em um campeonato nacional de arco-e-flecha, tem-se equipes de três jogadores
 #para cada estado. Sabendo-se que os arqueiros de uma equipe não obtiveram o
@@ -252,6 +298,49 @@ def q14():
 #Peixe          230cal Sorvete diet     110cal Suco de laranja   70cal
 #Frango         250cal Mousse diet      170cal Suco de melão     100cal
 #Carne          350cal Mousse chocolate 200cal Refrigerante diet 65cal
+def q23():
+    pratos = ''' 
+    1 - Vegetariano
+    2 - Peixe
+    3 - Frango
+    4 - Carne
+    Opção:
+    '''
+
+    sobremesas = '''
+    1 - Abacaxi
+    2 - Sorvete diet
+    3 - Mousse diet 
+    4 - Mousse chocolate
+    Opção:
+    '''
+
+    bebidas = '''
+    1 - Chá
+    2 - Suco de laranja
+    3 - Suco de melão
+    4 - Refrigerante diet
+    Opção:
+    '''
+    prato = int(input(pratos))
+    sobremesa = int(input(sobremesas))
+    bebida = input(bebidas)
+
+    cal = 0
+    cal += 180 if prato == 1 else 0
+    cal += 230 if prato == 2 else 0
+    cal += 250 if prato == 3 else 0
+    cal += 350 if prato == 4 else 0
+    cal += 75 if prato == 1 else 0
+    cal += 110 if prato == 2 else 0
+    cal += 170 if prato == 3 else 0
+    cal += 200 if prato == 4 else 0
+    cal += 20 if prato == 1 else 0
+    cal += 70 if prato == 2 else 0
+    cal += 70 if prato == 3 else 0
+    cal += 65 if prato == 4 else 0
+    print(f'Total de calorias: {cal}')
+
 
 #24. A polícia rodoviária resolveu fazer cumprir a lei e vistoriar veículos para
 #cobrar dos motoristas o DUT. Sabendo-se que o mês em que o emplacamento do
@@ -269,4 +358,4 @@ def q14():
 #0,3 1º grupo
 #0,4 1º e 2º grupos
 #0,5 1º, 2º e 3º grupos
-q13()
+q15()
