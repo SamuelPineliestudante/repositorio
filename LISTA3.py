@@ -2,6 +2,8 @@
 Lista de Exercícios referentes a estruturas de iteração (repetição)
 '''
 
+from util import *
+
 
 #1.Faça um programa que imprima todos os números de 1 até 100.
 def q1():
@@ -39,6 +41,38 @@ def q4():
 #5. Sabendo-se que a unidade lógica e aritmética calcula o produto através de somas
 #sucessivas, crie um programa que calcule o produto de dois números inteiros
 #lidos. Suponha que os números lidos sejam positivos.
+def q5():
+    erro = True
+    # while True: # poderia ser um laço infinito e não precisar da variável erro
+    while erro == True:
+        fator1 = 0
+        try: # Bloco que permite tratar instruções que gerem erros
+            fator1 = int(input('Número 1: '))
+        except ValueError: # só é executado para o tipo de erro ValueError
+            print('O valor informado não é um número inteiro!')
+            erro = True
+        except: # captura qualquer erro
+            print('Ocorreu um erro desconhecido! Tente novamente!')
+            erro = True
+        else:
+            # break # comando para interromper o laço de repetição
+            erro = False # executa se não ocorrer erro
+        finally:
+            print(f'Número 1 = {fator1}') # mensagem sempre é exibida, com erro ou não
+    erro = True
+    while erro == True:
+        try:
+            fator2 = int(input('Número 2: '))
+            erro = False
+        except ValueError:
+            print('O valor informado não é um número inteiro!')
+            erro = True
+    produto = 0
+    for _ in range(fator1):
+        produto += fator2
+    print(f'{fator1} * {fator2} = {produto}')
+
+
 
 #6. Crie um programa que imprima os 20 primeiros termos da série de Fibonacci.
 #Observação: os dois primeiros termos desta série são 1 e 1 e os demais são gerados
@@ -52,6 +86,43 @@ def q4():
 #nome, nota da prova 1, nota da prova 2, e média das notas de cada aluno. Ao final,
 #imprimir a média geral da turma.
 
+def q7():
+     # Inicializa listas para armazenar os dados dos alunos
+    nomes = []
+    notas_prova1 = []
+    notas_prova2 = []
+
+# Número de alunos
+    num_alunos = 15
+
+# Coleta os dados dos alunos
+    for i in range(num_alunos):
+        nome = input(f"Digite o nome do aluno {i + 1}: ")
+        nota1 = float(input(f"Digite a nota da prova 1 de {nome}: "))
+        nota2 = float(input(f"Digite a nota da prova 2 de {nome}: "))
+    
+    # Armazena os dados nas listas
+    nomes.append(nome)
+    notas_prova1.append(nota1)
+    notas_prova2.append(nota2)
+
+# Inicializa variáveis para calcular a média geral
+    soma_geral = 0
+
+# Imprime a listagem de alunos e suas notas
+    print("\nListagem de Alunos:")
+    print("Nome\t\tNota Prova 1\tNota Prova 2\tMédia")
+    for i in range(num_alunos):
+        media = (notas_prova1[i] + notas_prova2[i]) / 2
+        soma_geral += media
+        print(f"{nomes[i]}\t\t{notas_prova1[i]}\t\t{notas_prova2[i]}\t\t{media:.2f}")
+
+# Calcula e imprime a média geral da turma
+    media_geral = soma_geral / num_alunos
+    print(f"\nMédia Geral da Turma: {media_geral:.2f}")
+
+
+
 #8. Faça umprograma que permita entrar com o nome e o salário bruto de 10 pessoas.
 #Após ler os dados, imprimir o nome e o valor da alíquota do imposto de renda
 #calculado conforme a tabela a seguir:
@@ -59,6 +130,31 @@ def q4():
 #Salário menor que R$1300,00 Isento
 #Salário maior ou igual a R$1300,00 e menor que R$2300,00 10% do salário bruto
 #Salário maior ou igual a R$2300,00 15% do salário bruto
+# Função que calcula a alíquota do Imposto de Renda
+
+def calcular_aliquota(salario):
+    if salario < 1300.00:
+        return "Isento"
+    elif salario >= 1300.00 and salario < 2300.00:
+        return salario * 0.10  # 10% do salário
+    else:
+        return salario * 0.15  # 15% do salário
+
+# Loop para ler dados de 10 pessoas
+for i in range(10):
+    # Entrada de dados: nome e salário
+    nome = input(f"Digite o nome da pessoa {i + 1}: ")
+    salario = float(input(f"Digite o salário bruto de {nome}: R$"))
+
+    # Calcula a alíquota do Imposto de Renda
+    aliquota = calcular_aliquota(salario)
+
+    # Exibe o resultado
+    if isinstance(aliquota, str):  # Caso seja "Isento"
+        print(f"{nome}: IRRF = {aliquota}")
+    else:
+        print(f"{nome}: IRRF = R${aliquota:.2f}")
+
 
 #9. No dia da estréia do filme "Procurando Dory", uma grande emissora de TV realizou
 #uma pesquisa logo após o encerramento do filme. Cada espectador respondeu
@@ -286,4 +382,4 @@ def q4():
 #idade.
 
 
-q4()
+()
