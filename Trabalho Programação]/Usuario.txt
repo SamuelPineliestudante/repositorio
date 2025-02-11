@@ -1,0 +1,8 @@
+Pedro Macedo;25;Desenvolvedor
+Maxuel;42;Analista
+Bruno Agnelo;24;Agiota
+Samuel Pineli;19;Estudante
+Gabriel;20;Estagiário
+Pedro Santana;26;Residente técnico
+Gustavo Magalhaes;25;Militar
+Kaique Pinheiro;20;Estudante
